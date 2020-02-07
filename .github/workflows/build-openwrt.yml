@@ -13,7 +13,7 @@ on:
     types: [published]
   push:
     branches:
-      - master
+      - passwall
     paths:
       - '.config'
 #  schedule:
@@ -23,7 +23,7 @@ on:
 
 env:
   REPO_URL: https://github.com/bigbighill/lede
-  REPO_BRANCH: master
+  REPO_BRANCH: passwall
   CONFIG_FILE: .config
   DIY_SH: diy.sh
   FREE_UP_DISK: false
