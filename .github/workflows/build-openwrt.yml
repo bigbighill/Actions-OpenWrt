@@ -65,20 +65,23 @@ jobs:
       run: git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt
 
     - name: Update feeds
-      run: cd openwrt && ./scripts/feeds update -a
-           rm -rf feeds/lienol/lienol/ipt2socks
-           rm -rf feeds/lienol/lienol/shadowsocksr-libev
-           rm -rf feeds/lienol/lienol/pdnsd-alt
-           rm -rf feeds/lienol/package/verysync
-           rm -rf feeds/lienol/lienol/luci-app-verysync
-           rm -rf package/lean/kcptun
-           rm -rf package/lean/trojan
-           rm -rf package/lean/v2ray
-           rm -rf package/lean/luci-app-kodexplorer
-           rm -rf package/lean/luci-app-pppoe-relay
-           rm -rf package/lean/luci-app-pptp-server          
-           rm -rf package/lean/luci-app-v2ray-server
-           rm -rf package/lean/v2ray-plugin
+      run: |
+        cd openwrt
+        ./scripts/feeds update -a
+        rm -rf feeds/lienol/package/ipt2socks
+        rm -rf feeds/lienol/package/shadowsocksr-libev
+        rm -rf feeds/lienol/package/pdnsd-alt
+        rm -rf feeds/lienol/package/verysync
+        rm -rf feeds/lienol/package/v2ray-plugin
+        rm -rf feeds/lienol/others/luci-app-verysync
+        rm -rf package/lean/kcptun
+        rm -rf package/lean/trojan
+        rm -rf package/lean/v2ray
+        rm -rf package/lean/luci-app-kodexplorer
+        rm -rf package/lean/luci-app-pppoe-relay
+        rm -rf package/lean/luci-app-pptp-server          
+        rm -rf package/lean/luci-app-v2ray-server
+      #  rm -rf package/lean/v2ray-plugin
 
     - name: Install feeds
       run: cd openwrt && ./scripts/feeds install -a
