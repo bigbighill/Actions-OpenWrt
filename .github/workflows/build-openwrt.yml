@@ -56,8 +56,8 @@ jobs:
 
     - name: Update feeds
       run: |
-	    cd openwrt
-        ./scripts/feeds update -a
+	cd openwrt
+	./scripts/feeds update -a
 #        rm -rf feeds/lienol/package/ipt2socks
 #        rm -rf feeds/lienol/package/shadowsocksr-libev
 #        rm -rf feeds/lienol/package/pdnsd-alt
